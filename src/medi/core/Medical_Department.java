@@ -8,8 +8,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 
-public class Department extends JFrame {
-    Department(){
+public class Medical_Department extends JFrame {
+
+    Medical_Department(){
 
         JPanel panel = new JPanel();
         panel.setBounds(5,5,690,490);
@@ -23,24 +24,38 @@ public class Department extends JFrame {
         table.setFont(new Font("Tahoma",Font.BOLD,14));
         panel.add(table);
 
-        try{
+        try {
             conn c = new conn();
-            String q = "select * from department";
+            // Updated SQL query to join Medical_department and Doctor tables
+            String q = "SELECT md.medical_department_id, md.medi_dept_name, d.doctor_name, d.phone " +
+                    "FROM Medical_department md " +
+                    "JOIN Doctor d ON md.medical_department_id = d.medical_department_id";
             ResultSet resultSet = c.statement.executeQuery(q);
             table.setModel(DbUtils.resultSetToTableModel(resultSet));
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
-        JLabel label1 = new JLabel("Department");
-        label1.setBounds(145,11,105,20);
+
+        JLabel label1 = new JLabel("Department ID");
+        label1.setBounds(10,11,180,20);
         label1.setFont(new Font("Tahoma",Font.BOLD,14));
         panel.add(label1);
 
-        JLabel label2 = new JLabel("Phone Number");
-        label2.setBounds(431,11,150,20);
+        JLabel label2 = new JLabel("Department Name");
+        label2.setBounds(200,11,150,20);
         label2.setFont(new Font("Tahoma",Font.BOLD,14));
         panel.add(label2);
+
+        JLabel label3 = new JLabel("Doctor");
+        label3.setBounds(380,11,100,20);
+        label3.setFont(new Font("Tahoma",Font.BOLD,14));
+        panel.add(label3);
+
+        JLabel label4 = new JLabel("Phone Number");
+        label4.setBounds(500,11,150,20);
+        label4.setFont(new Font("Tahoma",Font.BOLD,14));
+        panel.add(label4);
 
         JButton b1 = new JButton("BACK");
         b1.setBounds(400,410,130,30);
@@ -63,6 +78,6 @@ public class Department extends JFrame {
     }
 
     public static void main(String[] args) {
-        new Department();
+        new Medical_Department();
     }
 }

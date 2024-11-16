@@ -61,7 +61,7 @@ public class Reception extends JFrame {
             }
         });
 
-        JButton btn3 = new JButton("Department");
+        JButton btn3 = new JButton("Medical Department");
         btn3.setBounds(30,100,200,30);
         btn3.setBackground(new Color(245, 255, 137));
         panel1.add(btn3);
@@ -69,7 +69,7 @@ public class Reception extends JFrame {
         btn3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new Department();
+                new Medical_Department();
 
             }
         });
@@ -94,7 +94,7 @@ public class Reception extends JFrame {
         btn5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                 new ALL_Patient_Info();
             }
         });
 
@@ -106,7 +106,7 @@ public class Reception extends JFrame {
         btn6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                 new patient_discharge();
             }
         });
 
@@ -154,6 +154,32 @@ public class Reception extends JFrame {
         btn9.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        JButton btn11 = new JButton("Appointment");
+        btn11.setBounds(750,58,200,30);
+        btn11.setBackground(new Color(245, 255, 137));
+        panel1.add(btn11);
+
+        btn11.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new Appointment();
+
+            }
+        });
+
+        JButton btn12 = new JButton("Notification");
+        btn12.setBounds(750,100,200,30);
+        btn12.setBackground(new Color(245, 255, 137));
+        panel1.add(btn12);
+
+        btn11.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
 
             }
         });

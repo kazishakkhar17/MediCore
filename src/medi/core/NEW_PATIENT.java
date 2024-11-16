@@ -10,6 +10,8 @@ import java.util.Date;
 public class NEW_PATIENT extends JFrame implements ActionListener {
     JComboBox comboBox;
     JComboBox comboBox1;
+
+    JComboBox comboBox2;
     JTextField textFieldNumber, textName, textFieldDisease, textFieldDeposite;
     JRadioButton r1, r2;
     Choice c1;
@@ -148,7 +150,7 @@ public class NEW_PATIENT extends JFrame implements ActionListener {
         textFieldDeposite.setBounds(271,359,150,20);
         panel.add(textFieldDeposite);
 
-        JLabel labelDepartment = new JLabel("Department :");
+        JLabel labelDepartment = new JLabel("Edu Department :");
         labelDepartment.setBounds(35,399,200,14);
         labelDepartment.setFont(new Font("Tahoma",Font.BOLD,14));
         labelDepartment.setForeground(Color.white);
@@ -161,15 +163,36 @@ public class NEW_PATIENT extends JFrame implements ActionListener {
         comboBox1.setFont(new Font("Tahoma",Font.BOLD,14));
         panel.add(comboBox1);
 
+        // Medical Department Label
+        JLabel labelMedicalDepartment = new JLabel("Medical Department :");
+        labelMedicalDepartment.setBounds(35,439,200,14);
+        labelMedicalDepartment.setFont(new Font("Tahoma",Font.BOLD,14));
+        labelMedicalDepartment.setForeground(Color.white);
+        panel.add(labelMedicalDepartment);
+
+// Medical Department ComboBox
+        comboBox2 = new JComboBox(new String[] {
+                "General Medicine",
+                "Surgery",
+                "Pediatrics & Obstetrics",
+                "Emergency & Critical Care",
+                "Mental Health"
+        });
+        comboBox2.setBounds(271, 439, 150, 20); // Setting the position and size
+        comboBox2.setBackground(new Color(27, 72, 8)); // Background color
+        comboBox2.setForeground(Color.white); // Foreground color
+        comboBox2.setFont(new Font("Tahoma", Font.BOLD, 14)); // Font settings
+        panel.add(comboBox2);
+
         b1 = new JButton("ADD");
-        b1.setBounds(100,430,120,30);
+        b1.setBounds(100,460,120,30);
         b1.setForeground(Color.WHITE);
         b1.setBackground(Color.black);
         b1.addActionListener(this);
         panel.add(b1);
 
         b2 = new JButton("Back");
-        b2.setBounds(260,430,120,30);
+        b2.setBounds(260,460,120,30);
         b2.setForeground(Color.WHITE);
         b2.setBackground(Color.black);
         b2.addActionListener(this);
@@ -202,10 +225,11 @@ public class NEW_PATIENT extends JFrame implements ActionListener {
             String s7 =  date.getText();
             String s8 = textFieldDeposite.getText();
             String s9 = (String)comboBox1.getSelectedItem();
+            String s10 = (String)comboBox2.getSelectedItem();
 
             try {
 
-                String q ="insert into Patient_Info values ('"+s1+"', '"+s2+"','"+s3+"','"+s4+"', '"+s5+"', '"+s6+"', '"+s7+"', '"+s8+"','"+s9+"')";
+                String q = "insert into Patient_Info values ('"+s1+"', '"+s2+"','"+s3+"','"+s4+"', '"+s5+"', '"+s6+"', '"+s7+"', '"+s8+"','"+s9+"', '"+s10+"')";
                 String q1 = "update room set Availability = 'Occupied' where room_no = "+s6;
                 c.statement.executeUpdate(q);
                 c.statement.executeUpdate(q1);
