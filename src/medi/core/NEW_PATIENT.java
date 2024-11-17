@@ -238,7 +238,10 @@ public class NEW_PATIENT extends JFrame implements ActionListener {
 
             }catch (Exception E) {
                 E.printStackTrace();
+                //debugging
+                JOptionPane.showMessageDialog(null, "This id already exists");
             }
+
         }else {
             setVisible(false);
         }

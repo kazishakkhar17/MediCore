@@ -22,7 +22,7 @@ public class patient_discharge extends JFrame {
         label.setForeground(Color.white);
         panel.add(label);
 
-        JLabel label2 = new JLabel("Customer Id");
+        JLabel label2 = new JLabel("Patient Id Number");
         label2.setBounds(30,80,150,20);
         label2.setFont(new Font("Tahoma",Font.BOLD,14));
         label2.setForeground(Color.white);
