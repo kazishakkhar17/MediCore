@@ -1,12 +1,11 @@
 create database medicore;
-use mediambulancecore;
+use medicore;
 
 CREATE TABLE login (
-    login_id INT AUTO_INCREMENT PRIMARY KEY,
-    id VARCHAR(20) NOT NULL UNIQUE, -- username
-    password VARCHAR(20) NOT NULL
+    login_id INT AUTO_INCREMENT PRIMARY KEY, -- Numeric primary key
+    id VARCHAR(20) NOT NULL UNIQUE, -- Username or login ID
+    password VARCHAR(20) NOT NULL -- Password field
 );
-
 
 INSERT INTO login (id, password) VALUES ('kazi', '123456');
 select* from login;
@@ -114,21 +113,21 @@ VALUES
 select * from EMP_INFO;
 
 CREATE TABLE appointment (
-    appointment_id INT AUTO_INCREMENT PRIMARY KEY,
-    patient_id VARCHAR(20),
-    patient_name VARCHAR(100),
-    patient_disease VARCHAR(100),
-    department_name VARCHAR(100),
-    doctor_name VARCHAR(100),
-    doctor_specialization VARCHAR(100),
-    doctor_phone VARCHAR(20),
-    appointment_time DATETIME
+    appointment_id INT AUTO_INCREMENT PRIMARY KEY,  -- Unique identifier for each appointment
+    patient_id VARCHAR(20),                         -- References patient_info.ID
+    patient_name VARCHAR(100),                      -- Name of the patient
+    patient_disease VARCHAR(100),                   -- Patient's disease
+    department_name VARCHAR(100),                   -- References medical_department.medi_dept_name
+    doctor_name VARCHAR(100),                       -- References doctor.doctor_name
+    doctor_specialization VARCHAR(100),             -- Doctor's specialization
+    doctor_phone VARCHAR(20),                       -- Doctor's phone number
+    appointment_time DATETIME                       -- Time of the appointment
 );
 
 select * from appointment;
 
 
-
+Create table ambulence
 
 SELECT
     p.ID, p.Name, p.Patient_Disease, md.medi_dept_name,
@@ -153,7 +152,6 @@ ALTER TABLE appointment DROP INDEX patient_id;
 ALTER TABLE appointment MODIFY COLUMN patient_id VARCHAR(20);
 ALTER TABLE patient_info ADD UNIQUE (Number);
 
---this table added in part2
 
 Create table Ambulance(
 ambulance_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -166,8 +164,9 @@ Location varchar(20)
 
 insert into Ambulance values("1","Driver1","Male","Zen","Available","area 16");
 SELECT * FROM Ambulance;
-DELETE FROM ambulance WHERE Gender = 'male';
-SET SQL_SAFE_UPDATES = 0;
+
+
+
 
 
 

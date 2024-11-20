@@ -12,7 +12,7 @@ public class patient_discharge extends JFrame {
 
         JPanel panel = new JPanel();
         panel.setBounds(5,5,790,390);
-        panel.setBackground(new Color(90, 156, 163));
+        panel.setBackground(new Color(26, 220, 42));
         panel.setLayout(null);
         add(panel);
 

@@ -11,7 +11,7 @@ public class update_patient_details extends JFrame{
 
         JPanel panel = new JPanel();
         panel.setBounds(5,5,940,490);
-        panel.setBackground(new Color(169, 218, 140));
+        panel.setBackground(new Color(27, 72, 8));
         panel.setLayout(null);
         add(panel);
 
