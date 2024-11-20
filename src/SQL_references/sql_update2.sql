@@ -153,6 +153,7 @@ ALTER TABLE appointment DROP INDEX patient_id;
 ALTER TABLE appointment MODIFY COLUMN patient_id VARCHAR(20);
 ALTER TABLE patient_info ADD UNIQUE (Number);
 
+--this table added in part1
 
 Create table Ambulance(
 ambulance_id INT PRIMARY KEY AUTO_INCREMENT,
