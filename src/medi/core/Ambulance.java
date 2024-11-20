@@ -13,13 +13,13 @@ public class Ambulance extends JFrame {
     Ambulance(){
         JPanel panel = new JPanel();
         panel.setBounds(5,5,890,590);
-        panel.setBackground(new Color(90, 156, 163));
+        panel.setBackground(new Color(179, 250, 143));
         panel.setLayout(null);
         add(panel);
 
         JTable table = new JTable();
         table.setBounds(10,40,900,450);
-        table.setBackground(new Color(90, 156, 163));
+        table.setBackground(new Color(179, 250, 143));
         table.setFont(new Font("Tahoma",Font.BOLD,12));
         panel.add(table);
 
