@@ -26,7 +26,7 @@ public class Medical_Department extends JFrame {
 
         try {
             conn c = new conn();
-            // Updated SQL query to join Medical_department and Doctor tables
+            // we join Medical_department and Doctor tables
             String q = "SELECT md.medical_department_id, md.medi_dept_name, d.doctor_name, d.phone " +
                     "FROM Medical_department md " +
                     "JOIN Doctor d ON md.medical_department_id = d.medical_department_id";

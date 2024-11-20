@@ -53,10 +53,10 @@ public class Appointment extends JFrame {
     );
     """;
 
-            // Execute the insert query
+
             c.statement.executeUpdate(insertQuery);
 
-            // Select query to display updated data in the table
+
             String selectQuery = "SELECT * FROM appointment";
             ResultSet resultSet = c.statement.executeQuery(selectQuery);
             table.setModel(DbUtils.resultSetToTableModel(resultSet));

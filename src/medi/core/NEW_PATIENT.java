@@ -178,10 +178,10 @@ public class NEW_PATIENT extends JFrame implements ActionListener {
                 "Emergency & Critical Care",
                 "Mental Health"
         });
-        comboBox2.setBounds(271, 439, 150, 20); // Setting the position and size
-        comboBox2.setBackground(new Color(27, 72, 8)); // Background color
-        comboBox2.setForeground(Color.white); // Foreground color
-        comboBox2.setFont(new Font("Tahoma", Font.BOLD, 14)); // Font settings
+        comboBox2.setBounds(271, 439, 150, 20);
+        comboBox2.setBackground(new Color(27, 72, 8));
+        comboBox2.setForeground(Color.white);
+        comboBox2.setFont(new Font("Tahoma", Font.BOLD, 14));
         panel.add(comboBox2);
 
         b1 = new JButton("ADD");
