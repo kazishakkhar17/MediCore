@@ -118,7 +118,7 @@ public class Reception extends JFrame {
         btn7.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new update_patient_details();
             }
         });
 
@@ -130,10 +130,11 @@ public class Reception extends JFrame {
         btn8.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new Ambulance();
             }
         });
 
+        // Search Room Button
         JButton btn9 = new JButton("Search Room");
         btn9.setBounds(510,100,200,30);
         btn9.setBackground(new Color(245, 255, 137));
@@ -142,21 +143,24 @@ public class Reception extends JFrame {
         btn9.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new SearchRoom(); // Opens the SearchRoom screen
             }
         });
 
+// Logout Button
         JButton btn10 = new JButton("Logout");
         btn10.setBounds(750,15,200,30);
         btn10.setBackground(new Color(245, 255, 137));
         panel1.add(btn10);
 
-        btn9.addActionListener(new ActionListener() {
+        btn10.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                setVisible(false); // Close the Reception screen
+                new Login(); // Redirect to the Login screen
             }
         });
+
 
         JButton btn11 = new JButton("Appointment");
         btn11.setBounds(750,58,200,30);
