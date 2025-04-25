@@ -30,7 +30,7 @@ public class BillBreakdown extends JFrame {
                     FROM 
                         patient_info
                     GROUP BY 
-                        Patient_Disease, Medical_Department_Name
+                        Medical_Department_Name,Patient_Disease 
                     WITH ROLLUP
                     """;
 
@@ -48,7 +48,7 @@ public class BillBreakdown extends JFrame {
                 if (disease == null) disease = "ALL Diseases";
                 if (department == null) department = "ALL Departments";
 
-                model.addRow(new Object[]{disease, department, deposit});
+                model.addRow(new Object[]{department,disease,  deposit});
             }
 
             table.setModel(model);
