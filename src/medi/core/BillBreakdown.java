@@ -21,7 +21,7 @@ public class BillBreakdown extends JFrame {
         panel.add(table);
 
         try {
-            conn conn = new conn(); // uses your existing connection class
+            conn conn = new conn();
             String query = """
                     SELECT 
                         Patient_Disease,
