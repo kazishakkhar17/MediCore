@@ -189,6 +189,19 @@ public class Reception extends JFrame {
             }
         });
 
+        JButton btn13 = new JButton("Bill Breakdown");
+        btn13.setBounds(950,15,200,30);
+        btn13.setBackground(new Color(245, 255, 137));
+        panel1.add(btn13);
+
+        btn13.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new BillBreakdown();
+
+            }
+        });
+
 
 
 

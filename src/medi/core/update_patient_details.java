@@ -112,8 +112,10 @@ public class update_patient_details extends JFrame{
                     ResultSet resultSet1 = c.statement.executeQuery("select* from room where room_no = '"+textFieldR.getText()+"'");
                     while (resultSet1.next()){
                         String price = resultSet1.getString("Price");
-                        int amountPaid = Integer.parseInt(price) - Integer.parseInt(textFieldAmount.getText());
-                        textFieldPending.setText(""+amountPaid);
+                        int pendingAmount = Integer.parseInt(price) - Integer.parseInt(textFieldAmount.getText());
+                        if (pendingAmount < 0) pendingAmount = 0;
+                        textFieldPending.setText("" + pendingAmount);
+
                     }
 
                 }catch (Exception E){
