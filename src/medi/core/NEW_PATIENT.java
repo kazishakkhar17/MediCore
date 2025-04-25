@@ -226,22 +226,25 @@ public class NEW_PATIENT extends JFrame implements ActionListener {
             String s8 = textFieldDeposite.getText();
             String s9 = (String)comboBox1.getSelectedItem();
             String s10 = (String)comboBox2.getSelectedItem();
+            if (s2.isEmpty() || s3.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please fill up ID and Name fields.");
+            } else {
+                try {
 
-            try {
 
-                String q = "insert into Patient_Info values ('"+s1+"', '"+s2+"','"+s3+"','"+s4+"', '"+s5+"', '"+s6+"', '"+s7+"', '"+s8+"','"+s9+"', '"+s10+"')";
-                String q1 = "update room set Availability = 'Occupied' where room_no = "+s6;
-                c.statement.executeUpdate(q);
-                c.statement.executeUpdate(q1);
-                JOptionPane.showMessageDialog(null, "added Successfully");
-                setVisible(false);
+                    String q = "insert into Patient_Info values ('" + s1 + "', '" + s2 + "','" + s3 + "','" + s4 + "', '" + s5 + "', '" + s6 + "', '" + s7 + "', '" + s8 + "','" + s9 + "', '" + s10 + "')";
+                    String q1 = "update room set Availability = 'Occupied' where room_no = " + s6;
+                    c.statement.executeUpdate(q);
+                    c.statement.executeUpdate(q1);
+                    JOptionPane.showMessageDialog(null, "added Successfully");
+                    setVisible(false);
 
-            }catch (Exception E) {
-                E.printStackTrace();
-                //debugging
-                JOptionPane.showMessageDialog(null, "This id already exists");
+                } catch (Exception E) {
+                    E.printStackTrace();
+                    //debugging
+                    JOptionPane.showMessageDialog(null, "This id already exists");
+                }
             }
-
         }else {
             setVisible(false);
         }
