@@ -23,6 +23,6 @@ public class Hasher {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;  // Return null if hashing fails
+        return null;
     }
 }

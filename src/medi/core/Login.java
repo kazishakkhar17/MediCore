@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class Login extends JFrame implements ActionListener {
@@ -81,9 +82,12 @@ public class Login extends JFrame implements ActionListener {
                 // Hash the entered password
                 String hashedPassword = Hasher.hashPassword(Pass);
 
-                // SQL query to check the username and hashed password
-                String q = "SELECT * FROM login WHERE id = '" + user + "' AND password = '" + hashedPassword + "'";
-                ResultSet resultSet = c.statement.executeQuery(q);
+                // Prepared Statement
+                PreparedStatement ps = c.connection.prepareStatement("SELECT * FROM login WHERE id = ? AND password = ?");
+                ps.setString(1, user);
+                ps.setString(2, hashedPassword);
+                ResultSet resultSet = ps.executeQuery();
+
 
                 if (resultSet.next()) {
                     new Reception();  // Open the next window if login is successful
