@@ -1,5 +1,6 @@
 package medi.core;
 
+import javax.management.Notification;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -180,10 +181,10 @@ public class Reception extends JFrame {
         btn12.setBackground(new Color(245, 255, 137));
         panel1.add(btn12);
 
-        btn11.addActionListener(new ActionListener() {
+        btn12.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new NotificationInfo();
 
             }
         });
