@@ -189,6 +189,45 @@ public class Reception extends JFrame {
             }
         });
 
+        JButton btn13 = new JButton("Bill Breakdown");
+        btn13.setBounds(990,15,200,30);
+        btn13.setBackground(new Color(245, 255, 137));
+        panel1.add(btn13);
+
+        btn13.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new BillBreakdown();
+
+            }
+        });
+
+        JButton btn14 = new JButton("View Discharge Info");
+        btn14.setBounds(990,57,200,30);
+        btn14.setBackground(new Color(245, 255, 137));
+        panel1.add(btn14);
+
+        btn14.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ALL_Discharge_Info();
+
+            }
+        });
+
+        JButton btn15 = new JButton("Reports");
+        btn15.setBounds(990,99,200,30);
+        btn15.setBackground(new Color(245, 255, 137));
+        panel1.add(btn15);
+
+        btn15.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new Reports().setVisible(true);
+
+            }
+        });
+
 
 
 
