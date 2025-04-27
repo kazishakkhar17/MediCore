@@ -30,11 +30,12 @@ public class Reception extends JFrame {
         panel1.add(label);
 
         ImageIcon i11 = new ImageIcon(ClassLoader.getSystemResource("icon/ambulence.png"));
-        Image image1 = i11.getImage().getScaledInstance(450,270,Image.SCALE_DEFAULT);
-        ImageIcon i22= new ImageIcon(image1);
+        Image image1 = i11.getImage().getScaledInstance(200, 180, Image.SCALE_DEFAULT);
+        ImageIcon i22 = new ImageIcon(image1);
         JLabel label1 = new JLabel(i22);
-        label1.setBounds(1000,50,300,100);
+        label1.setBounds(1190, 50, 150, 60); // shifted right, and made smaller
         panel1.add(label1);
+
 
         JButton btn1 = new JButton("Add New Patient");
         btn1.setBounds(30,15,200,30);
