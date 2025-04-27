@@ -51,10 +51,11 @@ public class NotificationInfo extends JFrame {
         label4.setFont(new Font("Tahoma", Font.BOLD, 14));
         panel.add(label4);
 
-        JLabel label5 = new JLabel("Phone");
+        JLabel label5 = new JLabel("Dept Email");
         label5.setBounds(610, 11, 120, 14);
         label5.setFont(new Font("Tahoma", Font.BOLD, 14));
         panel.add(label5);
+
 
         JLabel label6 = new JLabel("Created At");
         label6.setBounds(760, 11, 120, 14);

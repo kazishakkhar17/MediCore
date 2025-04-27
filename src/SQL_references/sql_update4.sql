@@ -24,6 +24,7 @@ MODIFY COLUMN Number VARCHAR(255) NOT NULL;
 
 
 
+SET SQL_SAFE_UPDATES = 0;
 
 DELETE FROM patient_info;
 
@@ -46,31 +47,39 @@ INSERT INTO Room VALUES("303", "Available", "3500", "ICU Bed 4");
 INSERT INTO Room VALUES("304", "Available", "3500", "ICU Bed 5");
 INSERT INTO Room VALUES("305", "Available", "3500", "ICU Bed 6");
 
-DELETE from room;
+
+
 
 UPDATE Room
 SET Availability = 'Available'
 WHERE Availability = 'Occupied';
 
+DROP TABLE IF EXISTS Educational_Department;
 
 CREATE TABLE Educational_Department (
     department_id INT AUTO_INCREMENT PRIMARY KEY,
     department_name VARCHAR(50) NOT NULL UNIQUE,
-    department_head VARCHAR(50)
+    department_head VARCHAR(50),
+    department_email VARCHAR(100) NOT NULL UNIQUE
 );
+
+INSERT INTO Educational_Department (department_name, department_head, department_email)
+VALUES
+    ('MPE', 'Mr. X', 'mpe@iut-dhaka.edu'),
+    ('EEE', 'Ms. Y', 'eee@iut-dhaka.edu'),
+    ('CEE', 'Dr. Z', 'cee@iut-dhaka.edu'),
+    ('CSE', 'Prof. A', 'cse@iut-dhaka.edu'),
+    ('BTM', 'Mr. B', 'btm@iut-dhaka.edu'),
+    ('TVE', 'Ms. C', 'tve@iut-dhaka.edu');
+
+
+
 ALTER TABLE Department RENAME TO Educational_Department;
 ALTER TABLE patient_info
 ADD COLUMN Medical_Department_Name varchar(50);
 
 
-INSERT INTO Educational_Department (department_name, department_head)
-VALUES
-    ('MPE', 'Mr. X'),
-    ('EEE', 'Ms. Y'),
-    ('CEE', 'Dr. Z'),
-    ('CSE', 'Prof. A'),
-    ('BTM', 'Mr. B'),
-    ('TVE', 'Ms. C');
+
 
 select * from Educational_Department;
 
@@ -192,14 +201,18 @@ SELECT * FROM Ambulance;
 DROP TABLE IF EXISTS Notification;
 
 
+
 CREATE TABLE Notification (
     notification_id INT AUTO_INCREMENT PRIMARY KEY,
     patient_name VARCHAR(100),
     educational_department_name VARCHAR(100),
     department_head_name VARCHAR(100),
-    department_head_phone VARCHAR(20),
+    department_email VARCHAR(100),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+
+
 
 
 --Trigger--
@@ -211,14 +224,13 @@ FOR EACH ROW
 BEGIN
     DECLARE dept_name VARCHAR(100);
     DECLARE dept_head_name VARCHAR(100);
-    DECLARE dept_head_phone VARCHAR(20);
+    DECLARE dept_email VARCHAR(100);
 
     -- Get department head info based on Educational_Department
-    SELECT department_name, department_head, md.phone_no
-    INTO dept_name, dept_head_name, dept_head_phone
-    FROM Educational_Department ed
-    JOIN Medical_department md ON ed.department_name = NEW.Edu_Department_Name
-    WHERE ed.department_name = NEW.Edu_Department_Name
+    SELECT department_name, department_head, department_email
+    INTO dept_name, dept_head_name, dept_email
+    FROM Educational_Department
+    WHERE department_name = NEW.Edu_Department_Name
     LIMIT 1;
 
     -- Insert notification
@@ -226,18 +238,19 @@ BEGIN
         patient_name,
         educational_department_name,
         department_head_name,
-        department_head_phone
+        department_email
     )
     VALUES (
         NEW.Name,
         dept_name,
         dept_head_name,
-        dept_head_phonepatient_info
+        dept_email
     );
 END$$
 
-DELIMITER ;patient_info
+DELIMITER ;
 
+delete from discharge_info;
 CREATE TABLE discharge_info (
     Discharge_ID INT AUTO_INCREMENT PRIMARY KEY,
     ID VARCHAR(20),
