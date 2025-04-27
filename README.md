@@ -6,10 +6,15 @@ It focuses on the implementation of RDBMS
 
 ## Features
 - LOGIN/LOGOUT SYSTEM
-- Add patient of discharge patient
+- Add new patient, Update patient info
+- Discharge Patient
+- Add record of discharged patients
 - Update room status
-- Search for avaiable room
-- Special academoc consideration record management
+- Search for available room
+- Special academic consideration record management
+- Bill Breakdown
+- Generate Reports for each discharged patient
+- Appointment to doctor According to medical department
 
 ## Technologies
 - MySQL
