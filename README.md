@@ -21,4 +21,19 @@ It focuses on the implementation of RDBMS
 - Java Swing
 - AWT
 
+## ## How to Run
+
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/kazishakkhar17/MediCore.git
+2. Set up the MySQL database using the provided SQL scripts.
+
+3. Compile and run the project using your Java IDE.
+
+
+
+
+
+
+
 
